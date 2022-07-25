@@ -28,7 +28,7 @@ public class AccountsPage {
 	}
 
 	public String getAccountPageTitle() {
-		return elementUtil.waitForTitleIs(Constants.ACCOUNTS_PAGE_TITLE, Duration.ofMillis(100));
+		return elementUtil.waitForTitleIs(Constants.ACCOUNTS_PAGE_TITLE, 5);
 }
 
 	public String getAccountsPageHeader() {
@@ -46,7 +46,7 @@ public class AccountsPage {
 	}
 //adding NgRok webhook
 	public List<String> getAccountSecList() {
-	List<WebElement> accSecList = elementUtil.waitForElementsToBeVisible(accountSections, Duration.ofMillis(1000));
+	List<WebElement> accSecList = elementUtil.waitForElementsToBeVisible(accountSections, 5);
 	List<String> accSecValList = new ArrayList<String>();
 		for (WebElement e : accSecList) {
 			accSecValList.add(e.getText());

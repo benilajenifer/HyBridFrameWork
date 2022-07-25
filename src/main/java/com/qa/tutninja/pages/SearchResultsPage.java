@@ -23,14 +23,14 @@ public class SearchResultsPage {
 	}
 
 	public int getProductListCount() {
-		int resultCount = elementUtil.waitForElementsToBeVisible(productResults, Duration.ofMillis(1000)).size();
+		int resultCount = elementUtil.waitForElementsToBeVisible(productResults, 5).size();
 		System.out.println("the search product count: " + resultCount);
 		return resultCount;
 	}
 
 	public ProductInfoPage selectProduct(String mainProductName) {
 		System.out.println("main product name is : " + mainProductName);
-		List<WebElement> searchList = elementUtil.waitForElementsToBeVisible(productResults, Duration.ofMillis(1000));
+		List<WebElement> searchList = elementUtil.waitForElementsToBeVisible(productResults, 5);
 		for (WebElement e : searchList) {
 			String text = e.getText();
 			if (text.equals(mainProductName)) {

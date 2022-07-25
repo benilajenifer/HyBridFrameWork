@@ -51,7 +51,7 @@ public class RegistrationPage {
 		elementUtil.doClick(agreeCheckBox);
 		elementUtil.doClick(continueButton);
 
-		String mesg = elementUtil.isElementVisible(sucessMessg, Duration.ofMillis(1000)).getText();
+		String mesg = elementUtil.isElementVisible(sucessMessg, 5).getText();
 
 		if (mesg.contains(Constants.REGISTER_SUCCESS_MESSG)) {
 			elementUtil.doClick(logoutLink);

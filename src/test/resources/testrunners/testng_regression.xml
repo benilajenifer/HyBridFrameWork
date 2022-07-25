@@ -1,40 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-
-<suite name="Open Cart Test Suite" verbose="4">
-
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="My Ui Framework Design" verbose="4" thread-count="1"
+	parallel="tests">
 	<listeners>
 		<listener
 			class-name="com.qa.tutninja.listeners.ExtentReportListener" />
 		<listener
-			class-name="com.qa.opencart.listeners.TestAllureListener" />
-
+			class-name="com.qa.tutninja.listeners.TestAllureListener" />
+		<listener
+			class-name="com.qa.tutninja.listeners.AnnotationTransformer" />
 	</listeners>
+	<test name="tutorialsNinja BaseTest chrome_90">
+		<parameter name="browser" value="chrome" />
+		<parameter name="browserversion" value="90.0" />
+		<classes>
+			<class name="com.qa.tutninja.tests.BaseTest" />
+		</classes>
 
-	<test name="Open Cart Login Page Test ">
-		
-
+	</test>
+	<test name="tutorialsNinja loginPageTest chrome_90">
+		<parameter name="browser" value="chrome" />
+		<parameter name="browserversion" value="90.0" />
 		<classes>
 			<class name="com.qa.tutninja.tests.LoginPageTest" />
 		</classes>
-	</test>
-	
-	
-	<test name="Open Cart Accounts Page Test ">
-		
 
+	</test>
+
+	<test name="tutorialsNinja AccountPageTest chrome_90">
+		<parameter name="browser" value="chrome" />
+		<parameter name="browserversion" value="90.0" />
 		<classes>
 			<class name="com.qa.tutninja.tests.AccountsPageTest" />
 		</classes>
+
 	</test>
-	
-	
-	
-	<test name="Open Cart Registration Page Test ">
-		
+	<test name="tutorialsNinja ProductInfoPageTest  chrome_90">
+		<parameter name="browser" value="chrome" />
+		<parameter name="browserversion" value="90.0" />
+		<classes>
+			<class name="com.qa.tutninja.tests.ProductInfoPageTest" />
+		</classes>
+
+	</test>
+	<test name="tutorialsNinja RegistrationPageTest  chrome_90">
+		<parameter name="browser" value="chrome" />
+		<parameter name="browserversion" value="90.0" />
 		<classes>
 			<class name="com.qa.tutninja.tests.RegistrationPageTest" />
 		</classes>
+
 	</test>
 
-</suite>
+
+
+
+</suite> <!-- Suite -->

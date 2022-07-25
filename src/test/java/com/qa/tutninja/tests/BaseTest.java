@@ -24,34 +24,27 @@ public class BaseTest {
 	public SearchResultsPage searchResultsPage;
 	public ProductInfoPage productInfoPage;
 	public RegistrationPage registrationPage;
-	
+
 	public SoftAssert softAssert = new SoftAssert();
-	
-	@Parameters({"browser","browserversion"})
+
+	@Parameters({ "browser", "browserversion" })
 	@BeforeTest
 	public void setUp(String browserName, String browserVersion) {
 		driverFactory = new DriverFactory();
 		prop = driverFactory.init_prop();
-		
-		if(browserName !=null) {
+
+		if (browserName != null) {
 			prop.setProperty("browser", browserName);
 			prop.setProperty("browserversion", browserVersion);
 		}
-		
+
 		driver = driverFactory.init_driver(prop);
 		loginPage = new LoginPage(driver);
 	}
-	
-	
+
 	@AfterTest
 	public void tearDown() {
 		driver.quit();
 	}
-	
-	
-	
-	
-	
-	
 
 }

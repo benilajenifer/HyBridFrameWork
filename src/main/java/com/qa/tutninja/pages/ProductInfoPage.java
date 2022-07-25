@@ -38,7 +38,7 @@ public class ProductInfoPage {
 	}
 
 	public int getProductImagesCount() {
-		return elementUtil.waitForElementsToBeVisible(productImages, Duration.ofMillis(1000)).size();
+		return elementUtil.waitForElementsToBeVisible(productImages, 5).size();
 	}
 
 	public Map<String, String> getProductInfo() {

@@ -186,12 +186,12 @@ public class ElementUtil {
 	 * @param timeout
 	 * @return
 	 */
-	public WebElement doPresenceOfElementLocated(By locator, Duration timeout) {
+	public WebElement doPresenceOfElementLocated(By locator, long timeout) {
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
 		return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	}
 
-	public WebElement doPresenceOfElementLocated(By locator, Duration timeout, Duration intervaltime) {
+	public WebElement doPresenceOfElementLocated(By locator, long timeout, long intervaltime) {
 		WebDriverWait wait = new WebDriverWait(driver, timeout, intervaltime);
 		return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	}
@@ -205,7 +205,7 @@ public class ElementUtil {
 	 * @param timeout
 	 * @return
 	 */
-	public WebElement isElementVisible(By locator, Duration timeout) {
+	public WebElement isElementVisible(By locator, long timeout) {
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
 		return wait.until(ExpectedConditions.visibilityOf(getElement(locator)));
 	}
@@ -219,21 +219,21 @@ public class ElementUtil {
 	 * @param timeout
 	 * @return
 	 */
-	public List<WebElement> waitForElementsToBeVisible(By locator, Duration timeout) {
+	public List<WebElement> waitForElementsToBeVisible(By locator, long timeout) {
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
 		return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
 	}
 
-	public Boolean waitForElementsToBeInVisible(By locator, Duration timeout) {
+	public Boolean waitForElementsToBeInVisible(By locator, long timeout) {
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
 		return wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
 	}
 
-	public void printAllElementsTextWithWait(By locator, Duration timeOut) {
+	public void printAllElementsTextWithWait(By locator, long timeOut) {
 		waitForElementsToBeVisible(locator, timeOut).stream().forEach(e -> System.out.println(e.getText()));
 	}
 
-	public List<String> getElementsTextListWithWait(By locator, Duration timeOut) {
+	public List<String> getElementsTextListWithWait(By locator, long timeOut) {
 		List<WebElement> elementsList = waitForElementsToBeVisible(locator, timeOut);
 		List<String> elementsTextList = new ArrayList<String>();
 		for (WebElement e : elementsList) {
@@ -249,75 +249,75 @@ public class ElementUtil {
 	 * @param locator
 	 * @param timeOut
 	 */
-	public void clickWhenReady(By locator, Duration timeOut) {
+	public void clickWhenReady(By locator, long timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOut);
 		wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
 	}
 
-	public void clickElementWhenReady(By locator, Duration timeOut) {
+	public void clickElementWhenReady(By locator, long timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOut);
 		wait.until(ExpectedConditions.elementToBeClickable(getElement(locator))).click();
 	}
 
-	private Alert waitForAlert(Duration timeOut) {
+	private Alert waitForAlert(long timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOut);
 		return wait.until(ExpectedConditions.alertIsPresent());
 	}
 
-	public void acceptAlert(Duration timeOut) {
+	public void acceptAlert(long timeOut) {
 		waitForAlert(timeOut).accept();
 	}
 
-	public void dismissAlert(Duration timeOut) {
+	public void dismissAlert(long timeOut) {
 		waitForAlert(timeOut).dismiss();
 	}
 
-	public String alertGetText(Duration timeOut) {
+	public String alertGetText(long timeOut) {
 		return waitForAlert(timeOut).getText();
 	}
 
-	public void alertSendKeys(Duration timeOut, String value) {
+	public void alertSendKeys(long timeOut, String value) {
 		waitForAlert(timeOut).sendKeys(value);
 	}
 
-	public void waitForFrameAndSwitch(String nameORID, Duration timeOut) {
+	public void waitForFrameAndSwitch(String nameORID, long timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOut);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(nameORID));
 	}
 
-	public void waitForFrameAndSwitch(By frameLocator, Duration timeOut) {
+	public void waitForFrameAndSwitch(By frameLocator, long timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOut);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameLocator));
 	}
 
-	public void waitForFrameAndSwitch(int frameIndex, Duration timeOut) {
+	public void waitForFrameAndSwitch(int frameIndex, long timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOut);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameIndex));
 	}
 
-	public void waitForFrameAndSwitch(WebElement frameElement, Duration timeOut) {
+	public void waitForFrameAndSwitch(WebElement frameElement, long timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOut);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameElement));
 	}
 
-	public boolean waitForUrlFraction(String urlFraction, Duration timeOut) {
+	public boolean waitForUrlFraction(String urlFraction, long timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOut);
 		return wait.until(ExpectedConditions.urlContains(urlFraction));
 	}
 
-	public boolean waitForUrlToBe(String url, Duration timeOut) {
+	public boolean waitForUrlToBe(String url, long timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOut);
 		return wait.until(ExpectedConditions.urlToBe(url));
 	}
 
-	public String waitForTitleIs(String expTitle, Duration timeOut) {
+	public String waitForTitleIs(String expTitle, long timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOut);
 		if (wait.until(ExpectedConditions.titleIs(expTitle)))
 			return driver.getTitle();
 		return null;
 	}
 
-	public String waitForTitleContains(String titleFraction, Duration timeOut) {
+	public String waitForTitleContains(String titleFraction, long timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOut);
 		if (wait.until(ExpectedConditions.titleContains(titleFraction)))
 			return driver.getTitle();

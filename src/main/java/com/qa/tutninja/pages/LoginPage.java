@@ -32,7 +32,7 @@ public class LoginPage {
 	// 3. page actions:
 	@Step("getting login page title...")
 	public String getLoginPageTitle() {
-		return elementUtil.waitForTitleIs(Constants.LOGIN_PAGE_TITLE,Duration.ofMillis(1000));
+		return elementUtil.waitForTitleIs(Constants.LOGIN_PAGE_TITLE,5);
 	}
 
 	@Step("getting forgot pwd link exist or not...")
