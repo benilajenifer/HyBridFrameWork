@@ -10,14 +10,7 @@
 		<listener
 			class-name="com.qa.tutninja.listeners.AnnotationTransformer" />
 	</listeners>
-	<test name="tutorialsNinja BaseTest chrome_90">
-		<parameter name="browser" value="chrome" />
-		<parameter name="browserversion" value="90.0" />
-		<classes>
-			<class name="com.qa.tutninja.tests.BaseTest" />
-		</classes>
-
-	</test>
+	
 	<test name="tutorialsNinja loginPageTest chrome_90">
 		<parameter name="browser" value="chrome" />
 		<parameter name="browserversion" value="90.0" />
@@ -27,17 +20,17 @@
 
 	</test>
 
-	<test name="tutorialsNinja AccountPageTest chrome_90">
-		<parameter name="browser" value="chrome" />
-		<parameter name="browserversion" value="90.0" />
+	<test name="tutorialsNinja AccountPageTest firefox_83">
+		<parameter name="browser" value="firefox" />
+		<parameter name="browserversion" value="83.0" />
 		<classes>
 			<class name="com.qa.tutninja.tests.AccountsPageTest" />
 		</classes>
 
 	</test>
-	<test name="tutorialsNinja ProductInfoPageTest  chrome_90">
+	<test name="tutorialsNinja ProductInfoPageTest  chrome_89">
 		<parameter name="browser" value="chrome" />
-		<parameter name="browserversion" value="90.0" />
+		<parameter name="browserversion" value="89.0" />
 		<classes>
 			<class name="com.qa.tutninja.tests.ProductInfoPageTest" />
 		</classes>
