@@ -16,12 +16,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-
 
 public class DriverFactory {
 
@@ -42,7 +40,7 @@ public class DriverFactory {
 	 * @return
 	 */
 	public WebDriver init_driver(Properties prop) {
-
+//checking my CICD pipeline
 		String browserName = prop.getProperty("browser").trim();
 		String browserVersion = prop.getProperty("browserversion").trim();
 
@@ -101,8 +99,8 @@ public class DriverFactory {
 				e.printStackTrace();
 			}
 		} else if (browser.equals("firefox")) {
-			fo=new FirefoxOptions();
-			
+			fo = new FirefoxOptions();
+
 			fo.setCapability("browserName", "firefox");
 			fo.setCapability("browserVersion", browserVersion);
 			fo.setCapability("enableVNC", true);
